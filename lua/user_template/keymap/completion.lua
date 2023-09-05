@@ -16,7 +16,6 @@ mappings["lsp"] = function(buf)
 			.map_cr("Lspsaga goto_definition")
 			:with_buffer(buf)
 			:with_desc("lsp: Goto definition"),
-
 		-- 必须使用map_cu, 为获取visual选中内容，使用的'<' 和 '>'标志必须在visual模式结束才会生效，否则获取的是上一次visual模式的选中内容
 		-- 因此使用map_cu进入命令模式就可以退出visual模式，获得当前选中代码块
 		-- format 对选中的代码块有完整性要求, 如果想要达到选中任意块都可format需要做语法分析获取最小可format单元
