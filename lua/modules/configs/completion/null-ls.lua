@@ -7,7 +7,7 @@ return function()
 	local sources = {
 		btns.formatting.clang_format.with({
 			filetypes = { "c", "cpp" },
-			extra_args = require("completion.formatters.clang_format"),
+			-- extra_args = require("completion.formatters.clang_format"),
 		}),
 		btns.formatting.prettier.with({
 			filetypes = {
