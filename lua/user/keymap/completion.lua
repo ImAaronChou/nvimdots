@@ -21,6 +21,10 @@ mappings["lsp"] = function(buf)
 		-- 因此使用map_cu进入命令模式就可以退出visual模式，获得当前选中代码块
 		-- format 对选中的代码块有完整性要求, 如果想要达到选中任意块都可format需要做语法分析获取最小可format单元
 		["nv|<leader>="] = require("keymap.bind").map_cu("FormatRange"):with_buffer(buf):with_desc("lsp: format range"),
+		["nv|<leader>sw"] = require("keymap.bind")
+			.map_cu("ClangdSwitchSourceHeader")
+			:with_buffer(buf)
+			:with_desc("switch btw h/cpp"),
 	}
 end
 
