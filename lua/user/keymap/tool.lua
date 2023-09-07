@@ -1,5 +1,6 @@
 local bind = require("keymap.bind")
 local map_callback = bind.map_callback
+local map_cu = bind.map_cu
 
 --打开nvimtree的函数
 --有别于原有NvimTreeFocus, 当只有一个blank buffer时，会打开tree后再创建一个blank buffer并刷新窗口大小
@@ -20,4 +21,11 @@ end
 
 return {
 	["n|<C-n>"] = map_callback(FocusNvimTree):with_noremap():with_silent():with_desc("filetree: Toggle"),
+	["n|<C-p>"] = map_cu("Telescope find_files"):with_noremap():with_silent():with_desc("find: File in project"),
+	["n|<leader>p"] = map_callback(function()
+			_command_panel()
+		end)
+		:with_noremap()
+		:with_silent()
+		:with_desc("tool: Toggle command panel"),
 }
