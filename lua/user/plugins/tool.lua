@@ -4,6 +4,9 @@ tool["nvim-tree/nvim-tree.lua"] = {
 	cmd = {
 		"NvimTreeFocus",
 	},
+	filters = {
+		exclude = { "src/" },
+	},
 }
 
 tool["nvim-telescope/telescope.nvim"] = {
