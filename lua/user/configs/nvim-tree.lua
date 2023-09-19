@@ -66,6 +66,16 @@ local function my_on_attach(bufnr)
 	vim.keymap.set("n", "<C-n>", api.tree.close, opts("Closes the tree"))
 end
 
+--当前nvim-tree对gitignore的渲染，需要改动explore.lua里的populate_children函数，判断是否是ignore类型及加载的相关逻辑
+--当前时间不够，暂时不修改源码，先在本地的.gitignore里注释需要在nvim-tree里显示的文件(如workspace的src), 后续有时间再修改
+
 return {
+	renderer = {
+		highlight_git = false, --屏蔽gitignore的灰色显示
+		full_name = true, --显示全名
+		icons = {
+			git_placement = "before", --git图标在前
+		},
+	},
 	on_attach = my_on_attach,
 }

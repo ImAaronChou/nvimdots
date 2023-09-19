@@ -26,6 +26,11 @@ function ts_select_dir_for_grep(prompt_bufnr)
 	})
 end
 
+--telescope在配置里用了rg(ripgrep)来搜索文件，rg本身不支持模糊搜索(顶多加个空格做同一字符多段搜索)
+--buildin.grep_string可能可以做模糊搜索，但速度会慢, 及fzf.nvim可能也可以用，但当前先不研究，凑合用
+--rg默认尊重.gitignore,会不搜索里面的内容,可以在.gitignore的同级加一个.ignore去覆盖.gitignore的内容，让telescope搜索被.gitignore忽略的内容
+--rg的具体覆盖规则可看github
+
 return {
 	defaults = {
 		mappings = {
