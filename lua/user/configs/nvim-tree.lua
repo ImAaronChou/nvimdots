@@ -70,6 +70,9 @@ end
 --当前时间不够，暂时不修改源码，先在本地的.gitignore里注释需要在nvim-tree里显示的文件(如workspace的src), 后续有时间再修改
 
 return {
+	filters = {
+		exclude = { "src$" }, --仅能触发I/U/H快捷键不过滤这个目录，但nvimtree-git仍不解析这目录，可能是Bug, 排查进度看上面注释
+	},
 	renderer = {
 		highlight_git = false, --屏蔽gitignore的灰色显示
 		full_name = true, --显示全名
@@ -78,4 +81,18 @@ return {
 		},
 	},
 	on_attach = my_on_attach,
+	-- log = {
+	-- 	enable = true,
+	-- 	truncate = true,
+	-- 	types = {
+	-- 		all = true,
+	-- 		config = true,
+	-- 		copy_paste = false,
+	-- 		dev = false,
+	-- 		diagnostics = false,
+	-- 		git = true,
+	-- 		profile = true,
+	-- 		watcher = true,
+	-- 	},
+	-- }, -- END_DEFAULT_OPTS
 }
