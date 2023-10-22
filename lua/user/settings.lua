@@ -8,4 +8,6 @@ settings["disabled_plugins"] = {
 	"romainl/vim-cool",
 }
 
+settings["colorscheme"] = "onedark"
+
 return settings
